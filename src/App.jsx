@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form} from './components/AllForm/AllForm'
+// import {Form} from './components/AllForm/AllForm'
 import { Layout } from 'components/layout/Layout';
 import {LoginPage, Dashboard} from 'pages';
 
@@ -21,7 +21,7 @@ export const App = () =>  {
         <Route path='/' element={<Layout/>}>
           <Route path='login' element={<LoginPage/>}/>
           <Route path='dashboard' element={<Dashboard/>}/>
-          <Route path='/' element={<Form/>}/>
+          {/* <Route path='/' element={<Form/>}/> */}
         </Route>
         
         

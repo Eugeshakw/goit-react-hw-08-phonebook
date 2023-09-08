@@ -1,16 +1,11 @@
-import { isLogIn } from 'components/redux/auth/authSlice';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { useLogoutRedirect } from 'hooks/useLogoutRedirect';
+import { Form } from '../components/AllForm/AllForm';
 export const Dashboard = () => {
-const navigate = useNavigate()
+  useLogoutRedirect();
 
-useEffect(() => {
-    if (isLogIn) {
-        navigate('/login', {replace: true})
-    }
-})
-    return (
-        <div>Dashboard Page</div>
-    )
-}
+  return (
+    <>
+      <Form />
+    </>
+  );
+};

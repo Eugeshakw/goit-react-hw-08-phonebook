@@ -10,7 +10,13 @@ export const AppBar = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/login">log In</Link>
+            {!isLogIn && <Link to="/login">log In</Link>}
+            
+            
+          </li>
+          <li>
+            {isLogIn && <Link to="/dashboard">dashboard</Link>}
+            
           </li>
         </ul>
       </nav>
