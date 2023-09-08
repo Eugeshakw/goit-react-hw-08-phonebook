@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFilter } from '../redux/createSlice';
 
-const ContactFilter = () => {
+export const ContactFilter = () => {
   const dispatch = useDispatch();
 
   const filter = useSelector(state => state.contactReducerUppdate); 
@@ -36,5 +36,5 @@ const ContactFilter = () => {
     )
 }
 
-export default ContactFilter;
+// export default ContactFilter;
 

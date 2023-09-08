@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { fetchContactsAdd } from '../redux/createSlice';
 
-const Contactform = () => {
+export const Contactform = () => {
   const dispatch = useDispatch();
 
   const contacts = useSelector(state => state.contacts.contacts);
@@ -37,6 +37,11 @@ const Contactform = () => {
   };
   return (
     <>
+     <h1 style={{ fontSize: '24px', color: 'blue', textAlign: 'center' }}>
+          Phonebook
+        </h1>
+        <h2>Contacts</h2>
+
       <form
         className={style.formContainer}
         onSubmit={onSubmitFrom}
@@ -74,4 +79,4 @@ const Contactform = () => {
     </>
   );
 };
-export default Contactform;
+// export default Contactform;

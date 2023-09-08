@@ -1,10 +1,12 @@
 import React from 'react';
-import Contactform from './components/contactForm/contactForm';
-import Contactslist from './components/contactList/contactList';
-import ContactFilter from './components/contactFilter/contactFilter';
+import {Form} from './components/AllForm/AllForm'
+import { Layout } from 'components/layout/Layout';
+import {LoginPage, Dashboard} from 'pages';
+
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {fetchContacts} from './components/redux/createSlice'
+import { Route, Routes } from 'react-router-dom';
 export const App = () =>  {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,13 +17,16 @@ export const App = () =>  {
 
     return (
       <>
-        <h1 style={{ fontSize: '24px', color: 'blue', textAlign: 'center' }}>
-          Phonebook
-        </h1>
-        <Contactform />
-        <h2>Contacts</h2>
-        <ContactFilter/>
-        <Contactslist/>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route path='login' element={<LoginPage/>}/>
+          <Route path='dashboard' element={<Dashboard/>}/>
+          <Route path='/' element={<Form/>}/>
+        </Route>
+        
+        
+      </Routes>
+      
       </>
     );
   

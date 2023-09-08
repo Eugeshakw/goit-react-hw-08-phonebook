@@ -33,9 +33,10 @@ export const fetchContactsAdd = createAsyncThunk(
 
 export const fetchDeleteContacts = createAsyncThunk(
   'contacts/deleteFetchContacts',
-  async (id, thunkApi) => {
+  async (contactsId, thunkApi) => {
     try{
-      const response = await removeContacts(id)
+      const response = await removeContacts(contactsId)
+      console.log(response);
     return response.id
     } catch(err){
       thunkApi.rejectWithValue(err.message)
@@ -74,7 +75,8 @@ const contactsSlice = createSlice({
     })
     .addCase(fetchContacts.fulfilled, (state, action) => {
       state.contacts.isLoading = false;
-      console.log(action.payload);
+      
+      // console.log(action.payload);
       state.contacts.items = action.payload;
 
       
@@ -125,4 +127,4 @@ export const contactReducer = contactsSlice.reducer;
 
 
 
-export const { createContact, deleteContact, updateFilter } = contactsSlice.actions;
+export const { updateFilter } = contactsSlice.actions;

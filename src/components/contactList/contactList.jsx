@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchDeleteContacts } from '../redux/createSlice';
 
-const Contactslist = () => {
+export const Contactslist = () => {
   const contacts = useSelector(state => state.contacts.contacts.items);
   
   const isLoading = useSelector(state => state.contacts.contacts.isLoading);
@@ -46,4 +46,4 @@ const Contactslist = () => {
   );
 };
 
-export default Contactslist;
+// export default Contactslist;
