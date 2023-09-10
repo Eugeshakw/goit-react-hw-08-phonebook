@@ -1,21 +1,32 @@
 
 import { useDispatch } from 'react-redux';
-import {login} from '../redux/auth/authSlice'
 import { useNavigate } from 'react-router-dom';
+import {login} from '../redux/auth/auth-operations'
 export const LoginForm = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const handleSubmit = e => {
         e.preventDefault();
-        const form = e.currentTarget.login.value;
-        dispatch(login(form))
-        // console.log(e.currentTarget.login.value);
-        e.target.reset()
+        const form = e.currentTarget;
+        const email = form.elements.email.value;
+        const password = form.elements.password.value;
+        dispatch(login({email, password}))
         navigate('/dashboard', {replace: true})
+        e.target.reset()
+        
     }
   return (
     <form action="" onSubmit={handleSubmit}>
-      <input type="text" name="login" />
+      <label >
+        Email
+        <input type="text" name="email" />
+      </label>
+      <label>
+        Password
+
+        <input type="password" name="password" />
+      </label>
+      
 
       <button type="submit">Log In</button>
     </form>

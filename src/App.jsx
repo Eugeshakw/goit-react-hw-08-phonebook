@@ -1,34 +1,53 @@
 import React from 'react';
-// import {Form} from './components/AllForm/AllForm'
-import { Layout } from 'components/layout/Layout';
-import {LoginPage, Dashboard} from 'pages';
 
+import { Layout } from 'components/layout/Layout';
+import { LoginPage, Dashboard } from 'pages';
+import { RegisterForm } from './components/registerForm';
+import { refreshCurrentUser } from './components/redux/auth/auth-operations';
+import { PrivateRoute } from './components/privateRoute';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {fetchContacts} from './components/redux/createSlice'
+import { PublicRoute } from './components/publickRoute';
+// import {fetchContacts} from './components/redux/createSlice'
 import { Route, Routes } from 'react-router-dom';
-export const App = () =>  {
+export const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchContacts())
-  })
+    console.log('диспатч');
+    dispatch(refreshCurrentUser());
+  }, [dispatch]);
 
-
-
-    return (
-      <>
+  return (
+    <>
       <Routes>
-        <Route path='/' element={<Layout/>}>
-          <Route path='login' element={<LoginPage/>}/>
-          <Route path='dashboard' element={<Dashboard/>}/>
-          {/* <Route path='/' element={<Form/>}/> */}
-        </Route>
-        
-        
-      </Routes>
-      
-      </>
-    );
-  
-}
+        <Route path="/" element={<Layout />}>
 
+          <Route
+            path="register"
+            element={
+              <PublicRoute redirectTo="/" component={<RegisterForm />} />
+            }
+          />
+
+          <Route
+            path="login"
+            element={<PublicRoute redirectTo="/dashboard" component={<LoginPage />} />}
+          />
+          
+
+          <Route
+            path="dashboard"
+            element={
+              <PrivateRoute
+                redirectTo="/login"
+                component={<Dashboard />}
+              ></PrivateRoute>
+            }
+          />
+
+        </Route>
+      </Routes>
+    </>
+  );
+};

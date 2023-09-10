@@ -5,11 +5,12 @@ import { useSelector } from 'react-redux';
 
 export const LoginPage = () => {
 
-  const isLogin = useSelector(state => state.user.isLogin);
+  const isLogin = useSelector(state => state.user.user.isLogin);
+  console.log(isLogin);
 
   return (
     <>
-      <div>{!isLogin && <LoginForm />}</div>
+      {!isLogin && <LoginForm />}
     </>
   );
 };

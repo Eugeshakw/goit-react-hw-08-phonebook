@@ -1,30 +1,59 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {register, login, logout, refreshCurrentUser} from './auth-operations';
 
 
+// export const selectorlogin = (state => state.user.isLogIn)
 
-export const userSlice = createSlice({
-    name: "user",
-    initialState:{
-        login: '',
-        isLogIn: false,
-       
-    }, 
-    reducers: {
-        login(state, action) {
-            state.login = action.payload
-            state.isLogIn = true
-        },
-        logout(state) {
-            state.login = ''
-            state.isLogIn = false
-        }
-        
-    },
-
+const initialState = {
+    user: {name: null, email: null},
+    token: null,
+    isLogIn: false,
+    isloading: false,
+    error: false,
+    isRefreshing: false,
 }
 
-    
-) 
+export const userSlice = createSlice({
+    name: "auth",
+    initialState, 
+    extraReducers:{
+
+        [register.fulfilled](state, action) {
+            state.user = action.payload.user
+            state.token = action.payload.token
+            state.isLogIn = true
+        },
+        [login.fulfilled] (state, action) {
+            state.user = action.payload.user
+            
+            state.isLogIn = true;
+            state.token = action.payload.token;
+            
+        },
+        [logout.fulfilled] (state, action) {
+            state.user = {name: null, email: null}
+            state.token =  null
+            state.isLogIn = false
+        },
+        [refreshCurrentUser.pending](state, action) {
+            state.isRefreshing = true
+        },
+
+        [refreshCurrentUser.fulfilled] (state, action) {
+            state.user = action.payload
+            state.isLogIn = true
+            state.isRefreshing = false
+
+            
+        },
+        [refreshCurrentUser.rejected] (state, action) {
+            state.isRefreshing = false
+        }
 
 
-export const {login , isLogIn, logout} = userSlice.actions
+
+} 
+}) 
+
+
+export default userSlice.actions

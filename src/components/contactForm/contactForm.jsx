@@ -3,14 +3,24 @@ import React from 'react';
 import style from './contactform.module.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
+import {fetchContacts} from '../redux/createSlice'
 import { nanoid } from 'nanoid';
 import { fetchContactsAdd } from '../redux/createSlice';
+import { useEffect } from 'react';
 
 export const Contactform = () => {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(state => state.contacts.contacts);
+
+  useEffect(() => {
+    dispatch(fetchContacts())
+  }, [dispatch])
+
+  const contacts = useSelector(state => state.contacts.contacts.items);
   console.log(contacts);
+
+ 
+
 
   const onSubmitFrom = e => {
     e.preventDefault();
@@ -20,7 +30,7 @@ export const Contactform = () => {
       alert('Please enter a number');
       return;
     } else if (
-      contacts.items.some(
+      contacts.some(
         contact =>
           contact.number.toLowerCase() === number.toLowerCase() ||
           contact.name.toLowerCase() === name.toLowerCase()

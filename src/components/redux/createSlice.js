@@ -7,7 +7,7 @@ export const fetchContacts = createAsyncThunk(
 
     try{
       const response = await allContactsGet()
-    
+    console.log(response);
     return response
 
     } catch(err) {
@@ -17,6 +17,7 @@ export const fetchContacts = createAsyncThunk(
   }
 
 )
+
 export const fetchContactsAdd = createAsyncThunk(
   'contacts/addFetchContacts',
   async (data, thunkApi) => {
@@ -44,6 +45,10 @@ export const fetchDeleteContacts = createAsyncThunk(
     
   }
 )
+
+export const selectorFilters = state => state.contacts.filter
+
+export const selectorContacts = state => state.contacts.contacts.items
 
 const contactsSlice = createSlice({
 
@@ -76,7 +81,7 @@ const contactsSlice = createSlice({
     .addCase(fetchContacts.fulfilled, (state, action) => {
       state.contacts.isLoading = false;
       
-      // console.log(action.payload);
+     
       state.contacts.items = action.payload;
 
       
@@ -88,11 +93,12 @@ const contactsSlice = createSlice({
     })
     .addCase(fetchContactsAdd.pending, state => {
       state.contacts.isLoading = true;
-      console.log(state);
+      // console.log(state);
       state.error = null;
     })
     .addCase(fetchContactsAdd.fulfilled, (state, {payload}) => {
       state.contacts.isLoading = false;
+      
       state.contacts.items.push(payload)
       
       
