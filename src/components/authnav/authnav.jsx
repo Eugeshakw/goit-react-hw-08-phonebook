@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import style from './styleAuth.module.scss'
 export const AuthNav = () => {
    const islogin = useSelector(state => state.user.isLogIn)
+   console.log(islogin);
  return (
     <div className={style.container}>
        <ul className={style.linkRegister}>
@@ -11,7 +12,8 @@ export const AuthNav = () => {
         <Link to="/login">log In</Link>
         </li>
         <li className={style.item}>
-          <Link to='/register' className={style.linkRegister}>register</Link>
+         {!islogin && <Link to='/register' className={style.linkRegister}>register</Link>}
+          
 
             
          
