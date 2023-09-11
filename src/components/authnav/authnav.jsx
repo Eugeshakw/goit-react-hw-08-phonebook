@@ -9,7 +9,8 @@ export const AuthNav = () => {
     <div className={style.container}>
        <ul className={style.linkRegister}>
         <li className={style.item}>
-        <Link to="/login">log In</Link>
+         {!islogin &&  <Link to="/login">log In</Link>}
+       
         </li>
         <li className={style.item}>
          {!islogin ? <Link to='/register' className={style.linkRegister}>register</Link>

@@ -1,31 +1,27 @@
 .container {
-    background-color: #333; /* Цвет фона контейнера */
-    padding: 10px 0; /* Внутренние отступы сверху и снизу */
     margin: auto;
-}
-
-/* Стили для списка ссылок */
-.linkRegister {
-    list-style: none; /* Убираем стандартные маркеры списка */
-    display: flex; /* Отображение элементов списка в виде флекс-контейнера */
-    justify-content: center; /* Выравнивание элементов по центру по горизонтали */
-    gap: 20px; /* Расстояние между элементами списка */
-}
-
-/* Стили для каждого элемента списка */
-.item {
-    margin: 0; /* Сбрасываем внешние отступы элементов списка */
-}
-
-/* Стили для ссылок внутри элементов списка */
-.linkRegister {
-    text-decoration: none; /* Убираем подчеркивание текста ссылок */
-    color: #fff; /* Цвет текста ссылок */
-    font-size: 16px; /* Размер шрифта */
-    transition: color 0.3s ease; /* Плавное изменение цвета текста ссылок при наведении */
-}
-
-/* Стили для ссылок при наведении */
-.linkRegister:hover {
-    color: #007bff; /* Изменяем цвет текста ссылок при наведении */
-}
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+  
+  .linkRegister {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+  
+  .item {
+    margin: 0 10px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
