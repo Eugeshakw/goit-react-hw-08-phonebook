@@ -12,14 +12,11 @@ export const AuthNav = () => {
         <Link to="/login">log In</Link>
         </li>
         <li className={style.item}>
-         {!islogin && <Link to='/register' className={style.linkRegister}>register</Link>}
-          
-
-            
-         
+         {!islogin ? <Link to='/register' className={style.linkRegister}>register</Link>
+          : <Link to='/dashboard'>Contacts</Link>}
         </li>
         <li className={style.item}>
-         {islogin && <Link to='/dashboard'>Contacts</Link>}
+         
         </li>
         
        </ul>
