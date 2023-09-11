@@ -72,7 +72,7 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com/'
             return res.data
         }
         catch(err){
-
+            alert('Unable to login')
         }
     }
 );

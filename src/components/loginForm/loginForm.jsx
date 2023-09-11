@@ -1,34 +1,33 @@
-
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import {login} from '../redux/auth/auth-operations'
+import style from './styleLoginForm.module.scss'
+import { login } from '../redux/auth/auth-operations';
 export const LoginForm = () => {
-    const dispatch = useDispatch()
-    const navigate = useNavigate();
-    const handleSubmit = e => {
-        e.preventDefault();
-        const form = e.currentTarget;
-        const email = form.elements.email.value;
-        const password = form.elements.password.value;
-        dispatch(login({email, password}))
-        navigate('/dashboard', {replace: true})
-        e.target.reset()
-        
-    }
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+    dispatch(login({ email, password }));
+  };
+
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <label >
-        Email
-        <input type="text" name="email" />
-      </label>
-      <label>
-        Password
+    <>
+      <div className={style.container}>
+        <form onSubmit={handleSubmit} className={style.form}>
+          <label >
+            Email
+            <input type="text" name="email" className={style.input}/>
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" className={style.input}/>
+          </label>
 
-        <input type="password" name="password" />
-      </label>
-      
-
-      <button type="submit">Log In</button>
-    </form>
+          <button type="submit" className={style.buttonlogin}>Log In</button>
+        </form>
+      </div>
+    </>
   );
 };

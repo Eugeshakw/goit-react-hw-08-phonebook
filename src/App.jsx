@@ -8,6 +8,7 @@ import { PrivateRoute } from './components/privateRoute';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { PublicRoute } from './components/publickRoute';
+import { Navigate } from 'react-router-dom';
 // import {fetchContacts} from './components/redux/createSlice'
 import { Route, Routes } from 'react-router-dom';
 export const App = () => {
@@ -23,6 +24,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
 
+        <Route path="*" element={<Navigate to="/" />} />
+        
           <Route
             path="register"
             element={

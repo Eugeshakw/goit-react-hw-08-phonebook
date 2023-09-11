@@ -1,0 +1,38 @@
+.formcontainer {
+    max-width: 400px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование формы по горизонтали */
+    padding: 20px; /* Внутренние отступы контейнера */
+    border: 1px solid #ccc; /* Граничная линия */
+    border-radius: 8px; /* Закругленные углы контейнера */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Тень контейнера */
+}
+
+/* Стили для каждого label и input */
+label {
+    display: block; /* Отображение label как блочного элемента */
+    margin-bottom: 10px; /* Внешний отступ снизу */
+}
+
+input {
+    width: 100%; /* Ширина поля ввода на 100% родительского контейнера */
+    padding: 10px; /* Внутренние отступы поля ввода */
+    border: 1px solid #ccc; /* Граничная линия поля ввода */
+    border-radius: 4px; /* Закругленные углы поля ввода */
+}
+
+/* Стили для кнопки "Register" */
+button[type="submit"] {
+    background-color: #007bff; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 10px 20px; /* Внутренние отступы кнопки */
+    border: none; /* Убираем границу */
+    border-radius: 4px; /* Закругленные углы */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    font-size: 16px; /* Размер шрифта */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
+}
+
+/* Стили для кнопки "Register" при наведении */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Изменяем цвет фона при наведении */
+}

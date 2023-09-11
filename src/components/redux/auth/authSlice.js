@@ -25,7 +25,7 @@ export const userSlice = createSlice({
         },
         [login.fulfilled] (state, action) {
             state.user = action.payload.user
-            
+            console.log(state.user);
             state.isLogIn = true;
             state.token = action.payload.token;
             

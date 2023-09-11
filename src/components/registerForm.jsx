@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {register} from './redux/auth/auth-operations';
+import style from './registerFrom.module.scss'
 export const RegisterForm = () => {
     const dispatch = useDispatch()
     
@@ -12,11 +13,11 @@ export const RegisterForm = () => {
         const password = form.elements.password.value;
 
         dispatch(register({name, email, password}))
-        e.form.reset();
+       
     }
 
   return (
-    <div>
+    <div className={style.formcontainer}>
       <form onSubmit={handleSubmit}>
 
       <label>

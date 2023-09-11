@@ -43,8 +43,9 @@ export const Contactform = () => {
       return;
     }
     dispatch(fetchContactsAdd({ name, number, id: nanoid() }));
-    e.target.reset();
+    // e.target.reset();
   };
+  
   return (
     <>
      <h1 style={{ fontSize: '24px', color: 'blue', textAlign: 'center' }}>

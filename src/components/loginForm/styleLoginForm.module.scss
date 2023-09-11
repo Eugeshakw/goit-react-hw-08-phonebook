@@ -1,0 +1,37 @@
+.container{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+}
+
+.form {
+        border-radius: 10px;
+       
+        box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.5), 5px 0px 5px rgba(0, 0, 0, 0.5);
+    
+}
+.input {
+    padding: 10px; /* Поля вокруг текстового поля */
+    border: 1px solid #ccc; /* Граничная линия серого цвета */
+    border-radius: 4px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    width: 100%; /* Ширина элемента на 100% родительского контейнера */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Тень элемента */
+}
+
+.buttonlogin {
+    background-color: #007bff; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 10px 20px; /* Внутренние отступы */
+    border: none; /* Убираем границу */
+    border-radius: 4px; /* Закругленные углы */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    font-size: 16px; /* Размер шрифта */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
+}
+
+/* Стили для кнопки "Log In" при наведении */
+.buttonlogin:hover {
+    background-color: #0056b3; /* Изменяем цвет фона при наведении */
+}
