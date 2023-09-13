@@ -11,6 +11,7 @@ const initialState = {
     isloading: false,
     error: false,
     isRefreshing: false,
+    alert: false,
 }
 
 export const userSlice = createSlice({
@@ -23,12 +24,24 @@ export const userSlice = createSlice({
             state.token = action.payload.token
             state.isLogIn = true
         },
-        [login.fulfilled] (state, action) {
-            state.user = action.payload.user
-            console.log(state.user);
+
+        [login.pending] (state, action) {
+            state.isloading = true
+            state.isLogIn = false;
+            state.error = action.payload
+        },
+
+        [login.fulfilled] (state, {payload}) {
+            state.user = payload.user
             state.isLogIn = true;
-            state.token = action.payload.token;
+            state.token = payload.token;
             
+        },
+        [login.rejected] (state, action) {
+            state.isloading = false
+            state.isLogIn = false;
+            state.error = action.payload  
+            state.alert = true;  
         },
         [logout.fulfilled] (state, action) {
             state.user = {name: null, email: null}
@@ -37,6 +50,7 @@ export const userSlice = createSlice({
         },
         [refreshCurrentUser.pending](state, action) {
             state.isRefreshing = true
+            
         },
 
         [refreshCurrentUser.fulfilled] (state, action) {

@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchDeleteContacts } from '../redux/createSlice';
-
+import style from './contactlist.module.scss'
 export const Contactslist = () => {
   const contacts = useSelector(state => state.contacts.contacts.items);
   console.log(contacts);
   
   const isLoading = useSelector(state => state.contacts.contacts.isLoading);
-  // console.log(isLoading);
+  
   const dispatch = useDispatch();
   const filter = useSelector(state => state.contacts.filter);
-  // console.log(filter);
+ 
 
   const filteredContacts = contacts.filter(contact => {
     return (
@@ -31,13 +31,13 @@ export const Contactslist = () => {
   return (
     <>
     
-      <ul>
+      <ul className={style.wrapper}>
         {filteredContacts.map(contactitem => {
           
           return (
-            <li key={contactitem.id}>
+            <li key={contactitem.id} className={style.list}>
               {contactitem.name} : {contactitem.number}
-              <button onClick={() => onDeleteContact(contactitem.id)}>
+              <button onClick={() => onDeleteContact(contactitem.id)}  className={style.button}>
                 Delete
               </button>
             </li>

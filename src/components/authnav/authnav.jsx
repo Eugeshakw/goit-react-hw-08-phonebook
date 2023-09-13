@@ -1,24 +1,20 @@
 
 import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import style from './styleAuth.module.scss'
 export const AuthNav = () => {
    const islogin = useSelector(state => state.user.isLogIn)
    console.log(islogin);
  return (
-    <div className={style.container}>
-       <ul className={style.linkRegister}>
-        <li className={style.item}>
-         {!islogin &&  <Link to="/login">log In</Link>}
-       
-        </li>
-        <li className={style.item}>
-         {!islogin ? <Link to='/register' className={style.linkRegister}>register</Link>
-          : <Link to='/dashboard'>Contacts</Link>}
-        </li>
-        <li className={style.item}>
-         
-        </li>
+    <div >
+       <ul >
+
+         <NavLink to='/' className={style.link}>Home</NavLink>
+
+         {!islogin &&  <NavLink to="/login" className={style.link}>log In</NavLink>}
+
+         {!islogin ? <NavLink to='/register' className={style.link}>register</NavLink>
+          : <NavLink to='/dashboard' className={style.link}>Contacts</NavLink>}
         
        </ul>
     </div>

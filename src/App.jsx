@@ -5,6 +5,7 @@ import { LoginPage, Dashboard } from 'pages';
 import { RegisterForm } from './components/registerForm';
 import { refreshCurrentUser } from './components/redux/auth/auth-operations';
 import { PrivateRoute } from './components/privateRoute';
+import {Toast} from './components/toats/toats'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { PublicRoute } from './components/publickRoute';
@@ -21,9 +22,11 @@ export const App = () => {
 
   return (
     <>
+      <Toast/>
       <Routes>
+      
         <Route path="/" element={<Layout />}>
-
+        
         <Route path="*" element={<Navigate to="/" />} />
         
           <Route

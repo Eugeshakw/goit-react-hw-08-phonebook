@@ -1,37 +1,103 @@
-.container{
+:root {
+    --loginBorderRadus: 0.25rem;
+    --loginColor: #eee;
+  
+    --loginInputBackgroundColor: #3b4148;
+    --loginInputHoverBackgroundColor: #434a52;
+  
+    --loginLabelBackgroundColor: #363b41;
+  
+    --loginSubmitBackgroundColor: #ea4c88;
+    --loginSubmitColor: #eee;
+    --loginSubmitHoverBackgroundColor: #d44179;
+}
+
+
+
+
+
+.container {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 150px;
     justify-content: space-around;
 }
-
 .form {
-        border-radius: 10px;
-       
-        box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.5), 5px 0px 5px rgba(0, 0, 0, 0.5);
+       width: 500px;
+}
+
+
+.formfield {
+    display: flex;
+    margin-bottom: 10px;
     
+
 }
-.input {
-    padding: 10px; /* Поля вокруг текстового поля */
-    border: 1px solid #ccc; /* Граничная линия серого цвета */
-    border-radius: 4px; /* Закругленные углы */
-    font-size: 16px; /* Размер шрифта */
-    width: 100%; /* Ширина элемента на 100% родительского контейнера */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Тень элемента */
+    
+
+
+
+
+
+
+input:hover{
+    background-color: var(--loginInputHoverBackgroundColor);
 }
+
 
 .buttonlogin {
-    background-color: #007bff; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    padding: 10px 20px; /* Внутренние отступы */
-    border: none; /* Убираем границу */
-    border-radius: 4px; /* Закругленные углы */
-    cursor: pointer; /* Изменяем курсор при наведении */
-    font-size: 16px; /* Размер шрифта */
-    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
+    cursor: pointer;
+    border: inherit;
+    width: 100%;
+    border-radius: var(--loginBorderRadus);
+    padding: 1rem;
+    background-color: var(--loginSubmitBackgroundColor);
+    color: var(--loginSubmitColor);
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
 }
 
-/* Стили для кнопки "Log In" при наведении */
 .buttonlogin:hover {
-    background-color: #0056b3; /* Изменяем цвет фона при наведении */
+    
+    background-color: var(--loginSubmitHoverBackgroundColor);
+    
+}
+
+
+
+.label, 
+.input {
+    border-radius: var(--loginBorderRadus);
+    
+    padding: 1rem;
+}
+
+
+.label {
+    background-color: var(--loginLabelBackgroundColor);
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-inline: 1.25rem;
+   
+  }
+
+  .input {
+    background-image: none;
+    border: 0;
+    color: rgba(121, 121, 121, 0.979);
+    font: inherit;
+    outline: 0;
+    padding: 0;
+    transition: background-color 0.3s;
+
+    border: inherit;
+    border-radius: var(--loginBorderRadus); 
+    background-color: var(--loginInputBackgroundColor);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    inline-size: 100%;
+    padding: 10px; 
+    font-size: 16px; 
+    width: 100%; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
 }

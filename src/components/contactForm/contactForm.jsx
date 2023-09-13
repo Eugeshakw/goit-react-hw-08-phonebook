@@ -50,11 +50,11 @@ export const Contactform = () => {
     <>
      <h1 style={{ fontSize: '24px', color: 'blue', textAlign: 'center' }}>
           Phonebook
-        </h1>
+      </h1>
         <h2>Contacts</h2>
 
       <form
-        className={style.formContainer}
+        className={style.form}
         onSubmit={onSubmitFrom}
         autoComplete="off"
       >
@@ -64,7 +64,7 @@ export const Contactform = () => {
         <input
           type="text"
           name="name"
-          className={style.inpName}
+          className={style.input}
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           id="name"
@@ -79,11 +79,11 @@ export const Contactform = () => {
           placeholder="Number"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
-          className={style.inpNumber}
+          className={style.input}
           id="number"
         />
 
-        <button type="submit" className={style.btnSubmit}>
+        <button type="submit" className={style.button}>
           add contact
         </button>
       </form>
